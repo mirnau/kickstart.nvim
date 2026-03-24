@@ -54,4 +54,5 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- NOTE: My keymaps
 vim.keymap.set('n', '<leader>f', 'mzgg=G`z', {desc = 'Indent Current File' })
-vim.keymap.set('n', '<C-n>', ':Neotree toggle filesystem reveal left<CR>')
+vim.keymap.set('n', '<C-n>', ':Neotree toggle filesystem reveal left<CR>', { desc = 'Toggle NeoTree' })
+vim.keymap.set('n', '<leader>c', '<cmd>ToggleTerm<CR>', { desc = 'Toggle floating terminal' })
