@@ -67,6 +67,8 @@ require('lazy').setup(
     require 'custom.plugins.mini',
     require 'custom.plugins.treesitter',
     require 'custom.plugins.dashboard',
+    require 'custom.plugins.debugging',
+    require 'custom.plugins.dap',
     require 'kickstart.plugins.debug',
     require 'kickstart.plugins.indent_line',
     require 'kickstart.plugins.lint',
