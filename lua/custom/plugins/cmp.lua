@@ -25,7 +25,10 @@ return {
 
     opts = {
         keymap = {
-            preset = 'default'
+            preset = 'default',
+            ['<Tab>']   = { 'select_next', 'snippet_forward', 'fallback' },
+            ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+            ['<CR>']    = { 'accept', 'fallback' },
         },
 
         appearance = {
@@ -34,9 +37,9 @@ return {
 
         completion = {
             documentation = {
-                auto_show = false,
+                auto_show = true,
                 auto_show_delay_ms = 500
-            }
+            },
         },
 
         sources = {
@@ -44,7 +47,14 @@ return {
         },
 
         snippets = {
-            preset = 'luasnip'
+            expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+            active = function(filter)
+                if filter and filter.direction then
+                    return require('luasnip').jumpable(filter.direction)
+                end
+                return require('luasnip').in_snippet()
+            end,
+            jump = function(direction) require('luasnip').jump(direction) end,
         },
 
         fuzzy = {

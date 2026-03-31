@@ -1,12 +1,18 @@
 return {
     omnisharp = {}, -- C#
-    clangd = {},    -- C/C++
+    clangd = {
+        cmd = {
+            'clangd',
+            '--compile-commands-dir=build',
+            '--function-arg-placeholders=1',
+        },
+    }, -- C/C++
     pyright = {},   
     svelte = {},
     ts_ls = {},     
     html = {},
     cssls = {},
-    
+
     -- gopls = {},
     -- rust_analyzer = {},
 

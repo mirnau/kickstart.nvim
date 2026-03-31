@@ -23,6 +23,7 @@ return {
         end
 
         map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+        map('<F2>', vim.lsp.buf.rename, 'Rename Symbol')
         map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
         map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 

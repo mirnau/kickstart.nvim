@@ -56,3 +56,4 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>f', 'mzgg=G`z', {desc = 'Indent Current File' })
 vim.keymap.set('n', '<C-n>', ':Neotree toggle filesystem reveal left<CR>', { desc = 'Toggle NeoTree' })
 vim.keymap.set('n', '<leader>c', '<cmd>ToggleTerm<CR>', { desc = 'Toggle floating terminal' })
+vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, { desc = 'LSP Rename Symbol' })

@@ -1,15 +1,32 @@
 return {
     'akinsho/toggleterm.nvim',
     opts = {
-        direction = "float",
+        direction = 'float',
+        shell = 'powershell',
         float_opts = {
-            border = "rounded", -- Options: "single", "double", "rounded", etc.
-            width = 80,   -- Adjust width as desired
-            height = 25,  -- Adjust height as desired
+            border = 'rounded',
+            width = 80,
+            height = 25
         },
-        shell = "pwsh" -- Use "powershell" if that's your preferred executable
+        on_open = function(term)
+            vim.cmd('startinsert')
+
+            vim.keymap.set('t', '<Esc>', function()
+                vim.cmd('stopinsert')
+                vim.cmd('close')
+            end, {
+                buffer = term.bufnr,
+                silent = true,
+                desc = 'Close floating terminal',
+            })
+        end,
     },
     config = function(_, opts)
-        require("toggleterm").setup(opts)
+        require('toggleterm').setup(opts)
+
+        vim.keymap.set('n', '<leader>c', '<cmd>ToggleTerm<CR>', {
+            desc = 'Toggle floating terminal'
+        })
     end
 }
+
