@@ -73,9 +73,19 @@ return {
     local servers = require('custom.plugins.lsp.servers')
     local blink = require('blink.cmp')
 
-    local ensure_installed = vim.tbl_keys(servers)
+    local ensure_installed = vim.tbl_filter(function(name)
+      return name ~= "shaderls"
+    end, vim.tbl_keys(servers))
+
     vim.list_extend(ensure_installed, { 'stylua' })
 
+    --NOTE: file type can be refactored and put into a files.lua if it grows
+    vim.filetype.add({
+      extension = {
+        hlsl = "hlsl",
+        hlsli = "hlsl",
+      },
+    })
     require('mason-tool-installer').setup({
       ensure_installed = ensure_installed,
     })

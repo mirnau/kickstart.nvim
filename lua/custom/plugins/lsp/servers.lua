@@ -7,6 +7,11 @@ return {
             '--function-arg-placeholders=1',
         },
     }, -- C/C++
+    shaderls = {
+        cmd = { "shader-language-server", "--stdio" },
+        filetypes = { "hlsl", "glsl", "wgsl" },
+        root_markers = { ".git" },
+    },
     pyright = {},   
     svelte = {},
     ts_ls = {},     
